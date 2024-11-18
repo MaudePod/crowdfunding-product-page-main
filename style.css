@@ -1,0 +1,720 @@
+        :root {
+            /*Primary*/
+            --moderate-cyan: hsl(176, 50%, 47%);
+            --dark-cyan: hsl(176, 72%, 28%);
+            /*Neutral*/
+            --black: hsl(0, 0%, 0%);
+            --dark-gray: hsl(0, 0%, 48%);
+            --font-size: 16px;
+            --border-radius: 20px;
+        }
+
+        @font-face {
+            font-family: 'Commissioner';
+            src: url(./fonts/Commissioner/Commissioner-VariableFont_FLAR\,VOLM\,slnt\,wght.ttf);
+        }
+
+        html {
+            font-size: var(--font-size);
+            font-family: 'Commissioner';
+        }
+
+        body {
+            margin: 0;
+            background: whitesmoke;
+            font-weight: 400;
+        }
+
+        main {
+            display: grid;
+            width: 100svw;
+            min-height: 100svh;
+        }
+
+        section[class="top"] {
+            display: grid;
+            place-items: center;
+            background-size: cover;
+            height: 40svh;
+        }
+
+        section[class="image-hero"] {
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            background-image: url(./images/image-hero-desktop.jpg);
+            background-size: cover;
+            width: 100%;
+            height: 50svh;
+            background-repeat: no-repeat;
+        }
+
+        section[class="top"] nav {
+            display: grid;
+            grid-template-areas:
+                "img ... ... ... ... ... ... ... ... about discover get-started";
+            margin-top: 2svh;
+            width: 80svw;
+            align-self: flex-start;
+            font-weight: 500;
+        }
+
+        menu[type="site"] {
+            list-style: none;
+            display: contents;
+            cursor: pointer;
+            color: white;
+        }
+
+        menu[type="site"] li:nth-of-type(1) {
+            grid-area: about;
+        }
+
+        menu[type="site"] li:nth-of-type(2) {
+            grid-area: discover;
+        }
+
+        menu[type="site"] li:nth-of-type(3) {
+            grid-area: get-started;
+        }
+
+        menu[type="site"] li:hover {
+            cursor: pointer;
+        }
+
+        section[class="bottom"] {
+            display: grid;
+            width: 100svw;
+            min-height: 100svh;
+            height: auto;
+            place-items: center;
+            position: relative;
+        }
+
+        section[class="info-card-containter"] {
+            display: grid;
+            min-height: 60svh;
+            width: 60svw;
+            background: whitesmoke;
+            top: -10%;
+            place-items: center;
+            grid-template-rows: 25svh 10svh;
+            gap: 1svh;
+            border-radius: var(--border-radius);
+        }
+
+        section[class="info-card-containter"] img {
+            position: absolute;
+            top: -25px;
+        }
+
+        section[class="project-info-short-card"],
+        section[class="about-this-project-card"],
+        section[class="backers-info-card"] {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            align-self: flex-start;
+            color: var(--dark-gray);
+            background: white;
+            border-radius: var(--border-radius);
+        }
+
+        section[class="project-info-short-card-header"] {
+            color: var(--black);
+            font-weight: bolder;
+            font-size: larger;
+            margin-top: 20px;
+        }
+
+        section[class="project-info-short-card-description"] {
+            font-size: small;
+        }
+
+        section[class="project-info-short-card-options"] {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        button[id="back-this-project"] {
+            background: var(--moderate-cyan);
+            border-radius: var(--border-radius);
+            padding-right: 4%;
+            padding-left: 4%;
+            font-size: smaller;
+            border: 0;
+            cursor: pointer;
+            width: 200px;
+            text-wrap: nowrap;
+            color: white;
+            font-weight: 500;
+            display: grid;
+            place-content: center;
+        }
+
+        button[id="back-this-project"]:hover {
+            background: var(--dark-cyan);
+            font-weight: 700;
+        }
+
+        button[id="bookmark"] {
+            border: 0;
+            padding: 20px;
+            width: 200px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            cursor: pointer;
+        }
+
+        section[class="project-info-short-card-options"]:has(button[id="bookmark"]:hover) {
+            button[id="bookmark"] {
+                color: var(--dark-cyan);
+                font-weight: 700;
+            }
+
+            span[class="btn"] img {
+            }
+        }
+
+        span[class="btn"] {
+            display: grid;
+            place-items: center;
+            justify-content: space-around;
+            position: relative;
+            left: 0;
+        }
+
+        span[class="btn mobile"] {
+            display: none;
+        }
+
+        span[class="btn"] img {
+            position: absolute;
+            left: -31px;
+            transform: scale(102%, 102%);
+            top: 0;
+        }
+
+        section[class="current-backer-facts"] {
+            display: grid;
+            grid-template-columns: 1fr 10px 1fr 10px 1fr;
+            width: 80%;
+            place-items: center;
+        }
+
+        span[class="bar"] {
+            border-right: 1px solid;
+            height: 100%;
+        }
+
+        section[class="backers-info-bits"] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section[class="backers-info-bit-top"] {
+            font-weight: 900;
+            color: black;
+        }
+
+        section[class="about-this-project-card-items-container"] header {
+            font-weight: 900;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        progress[id="backers-progress"] {
+            width: 80%;
+            appearance: none;
+            border-radius: 25px;
+        }
+
+        progress[id="backers-progress"]::-moz-progress-bar {
+            background-color: var(--moderate-cyan);
+        }
+
+        progress::-webkit-progress-bar {
+            border-radius: 25px;
+            background: whitesmoke;
+        }
+
+        progress[value]::-webkit-progress-value {
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            background-color: var(--moderate-cyan);
+        }
+
+        section[class="backers-info-bit-bottom"] {
+            font-size: smaller;
+        }
+
+        section[class="about-this-project-card-items-container"] {
+            display: grid;
+            width: 80%;
+            margin-top: 25px;
+        }
+
+        section[class="active-offer"],
+        section[class="inactive-offer"] {
+            display: grid;
+            place-items: center;
+            width: 95%;
+            margin-top: 25px;
+            border: 1px solid var(--dark-gray);
+            padding:5% 10% 5% 10%;
+            border-radius: 5px;
+        }
+
+        section[class="inactive-offer"] {
+            opacity: 0.5;
+        }
+
+        section[class="inactive-offer"] footer[class="offer-option"] button {
+            background: var(--dark-gray);
+        }
+
+        footer[class="offer-option"] {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        footer[class="offer-option"] button {
+            background: var(--moderate-cyan);
+            border-radius: var(--border-radius);
+            padding: 2%;
+            padding-right: 4%;
+            padding-left: 4%;
+            font-size: smaller;
+            border: 0;
+            cursor: pointer;
+            text-wrap: nowrap;
+            color: white;
+            font-weight: 500;
+        }
+
+        footer[class="offer-option"] button:hover {
+            background: var(--dark-cyan);
+            font-weight: 700;
+        }
+
+        span[class="quantity-left"] {
+            display: flex;
+        }
+
+        span[class="quantity-amount"] {
+            display: flex;
+            font-weight: bold;
+            font-size: larger;
+            color: black;
+        }
+
+        span[class="quantity-postfix"] {
+            align-self: center;
+        }
+
+        section[class="offers"] {
+            display: grid;
+            place-items: center;
+            padding: 5%;
+        }
+
+        dialog[id="pledge-dialog"] {
+            width: 60svw;
+            height: 70svh;
+            border: 1px solid var(--dark-gray);
+            padding: 1%;
+            border-radius: 10px;
+            border: 0;
+        }
+
+        dialog[id="pledge-dialog"] form {
+            display: contents;
+        }
+
+        section[class="back-this-project-container"] {
+            display: grid;
+            height: 100%;
+            align-items: baseline;
+        }
+
+        span[class="dialog-header-title"] {
+            font-size: x-large;
+            font-weight: 900;
+        }
+
+        span[class="pledge-title"] {
+            font-size: large;
+            font-weight: 900;
+        }
+
+        section[class="pledge-unlimited"],
+        section[class="pledge-25"],
+        section[class="pledge-75"],
+        section[class="pledge-200"] {
+            display: grid;
+            grid-template-areas:
+                "pledge-input pledge-title pledge-amount ... ... quantity-left"
+                "pledge-input pledge-description pledge-description pledge-description pledge-description pledge-description"
+                "... pledge-description pledge-description pledge-description pledge-description pledge-description"
+                "pledge-continue pledge-continue pledge-continue pledge-continue pledge-continue pledge-continue";
+            grid-template-columns: 25px fit-content fit-content 300px 100px 100px 100px;
+            grid-template-rows: 1fr 1fr 1fr;
+            column-gap: 20px;
+            border: 1px solid var(--dark-gray);
+            padding-right: 1%;
+            padding-left: 1%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            border-radius: 10px;
+        }
+
+        section[class="pledge-unlimited"]:has(input[id="pledge-select-unlimited"]:checked) section[class="pledge-continue"] {
+            display: flex;
+        }
+
+        section[class="pledge-25"]:has(input[id="pledge-select-25"]:checked) section[class="pledge-continue"] {
+            display: flex;
+        }
+
+        section[class="pledge-75"]:has(input[id="pledge-select-75"]:checked) section[class="pledge-continue"] {
+            display: flex;
+        }
+
+        section[class="pledge-200"]:has(input[id="pledge-select-200"]:checked) section[class="pledge-continue"] {
+            display: flex;
+        }
+
+        section[class="back-this-project-container"] label {
+            display: contents;
+        }
+
+        header[class="pledge-select"] label,
+        header[class="pledge-select"] {
+            display: contents;
+        }
+
+        header[class="pledge-select"] input {
+            grid-area: pledge-input;
+            appearance: none;
+            height: 15px;
+            width: 15px;
+            outline: 1px grey solid;
+            padding: 1px;
+            border-radius: 50%;
+            border: 3px white solid;
+            cursor: pointer;
+            place-self: center;
+        }
+
+        header[class="pledge-select"] input:checked {
+            background: var(--moderate-cyan);
+        }
+
+        section[class="back-this-project-container"] span[class="quantity-left"] {
+            grid-area: quantity-left;
+            column-gap: 5px;
+            flex-direction: row;
+        }
+
+
+        span[class="pledge-description"] {
+            grid-area: pledge-description;
+        }
+
+        span[class="pledge-title"] {
+            grid-area: pledge-title;
+            text-wrap: nowrap;
+        }
+
+        span[class="pledge-title"]:hover {
+            color: var(--moderate-cyan);
+        }
+
+        span[class="pledge-amount"] {
+            grid-area: pledge-amount;
+            text-wrap: nowrap;
+            color: var(--moderate-cyan);
+            font-weight: bold;
+        }
+
+        section[class="pledge-buttons"] input {
+            border-radius: 25px;
+            border: 1px solid var(--dark-gray);
+
+            width: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        section[class="pledge-buttons"] input:focus-visible {
+            border-color: var(--moderate-cyan);
+            outline: transparent;
+        }
+
+        input[type="number"] {
+            appearance: textfield;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            appearance: none;
+        }
+
+        section[class="pledge-buttons"] button {
+            display: grid;
+            place-content: center;
+            border-radius: 30px;
+            height: 40px;
+            width: 100px;
+            background: var(--dark-cyan);
+            color: white;
+            border: 1px solid var(--moderate-cyan);
+            cursor: pointer;
+            padding: 5% 10% 5% 10%;
+        }
+
+        section[class="pledge-buttons"] {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        span[class="offer-price"] {
+            color: var(--moderate-cyan);
+        }
+
+        section[class="pledge-continue"] {
+            display: none;
+            border-top: 1px solid var(--dark-gray);
+            grid-area: pledge-continue;
+            min-height: 50px;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        dialog[id="completed-dialog"] {
+            width: 25svw;
+            height: 30svh;
+            border: 0;
+            padding-right: 1%;
+            padding-left: 1%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            border-radius: 10px;
+            border-color: var(--moderate-cyan);
+        }
+
+        dialog[id="completed-dialog"] section {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        dialog[id="completed-dialog"] header {
+            font-size: 1.2em;
+            font-weight: bolder;
+        }
+
+        dialog[id="completed-dialog"] button {
+            background: var(--moderate-cyan);
+            color: white;
+            border: 0;
+            border-radius: var(--border-radius);
+            padding: 5%;
+            text-wrap: nowrap;
+            display: grid;
+            place-items: center;
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        dialog[id="completed-dialog"] button:hover {
+            background: var(--dark-cyan);
+            font-weight: 700;
+        }
+
+        header[id="pledge-dialog-header"] {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input[id="close-pledge-dialog"] {
+            height: 20px;
+            width: 20px;
+        }
+
+        label[for="hamburger"],
+        input[id="hamburger"] {
+            display: none;
+        }
+
+        div[class="attribution"] {
+            margin-top: 50px;
+        }
+
+        @media (max-width:1000px) {
+            label[for="hamburger"] {
+                display: grid;
+            }
+
+            span[class="enter-pledge-amount"] {
+                margin: 20px 0 20px 0;
+            }
+
+            section[class="info-card-containter"] {
+                width: 80svw;
+                grid-template-rows: 25svh 20svh;
+            }
+
+            section[class="project-info-short-card-description"] {
+                width: 80%;
+            }
+
+            section[class="project-info-short-card"] {
+                text-align: center;
+            }
+
+            section[class="project-info-short-card-header"] {
+                font-size: large;
+                margin-top: 20px;
+            }
+
+            span[class="btn"] {
+                display: none;
+            }
+
+            section[class="pledge-buttons"] {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                gap: 20%;
+            }
+
+            span[class="btn mobile"] {
+                display: grid;
+                background-image: url(./images/icon-bookmark.svg);
+            }
+
+            section[class="current-backer-facts"] {
+                display: grid;
+                grid-template-columns: unset;
+                grid-template-rows: 1fr;
+                width: 80%;
+                place-items: center;
+                text-align: center;
+            }
+
+            section[class="backers-info-bit-top"] {
+                border-bottom: 1px solid;
+            }
+
+            section[class="about-this-project-card-items-container"] header {
+                flex-direction: column;
+            }
+
+            footer[class="offer-option"] {
+                flex-direction: column;
+            }
+
+            footer[class="offer-option"] button {
+                width: 50%;
+                height: 40px;
+            }
+
+            dialog[id="pledge-dialog"] {
+                width: 80svw;
+                height: unset;
+                padding: 5%;
+            }
+
+            dialog[id="completed-dialog"] {
+                width: 80svw;
+            }
+
+            section[class="pledge-unlimited"],
+            section[class="pledge-25"],
+            section[class="pledge-75"],
+            section[class="pledge-200"] {
+                display: grid;
+                grid-template-areas:
+                    "... pledge-input pledge-title ..."
+                    "... pledge-input pledge-amount ..."
+                    "... pledge-description pledge-description ..."
+                    "... pledge-description pledge-description ..."
+                    "... quantity-left ... ..."
+                    "... pledge-continue pledge-continue ...";
+                grid-template-columns: 5px 25px auto 5px;
+                grid-template-rows: unset;
+                column-gap: 5px;
+                border: 1px solid var(--dark-gray);
+                padding: 5%;
+                border-radius: 10px;
+
+            }
+
+            section[class="pledge-continue"] {
+                flex-direction: column;
+                place-content: center;
+                gap: 10px;
+            }
+
+            section[class="back-this-project-container"] {
+                row-gap: 20px;
+            }
+
+            menu[type="site"] {
+                display: none;
+            }
+
+            section[class="top"] nav {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            nav:has(input[id="hamburger"]:checked) nav {
+                position: relative;
+            }
+
+            nav:has(input[id="hamburger"]:checked) menu[type="site"] {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                inset: 45px;
+                gap: 50px;
+                background: white;
+                color: black;
+                z-index: 1;
+                height: fit-content;
+                padding: 5%;
+                border-radius: 10px;
+                width: 70svw;
+            }
+
+            nav:has(input[id="hamburger"]:checked) menu[type="site"] li::after {
+                content: "";
+                border-bottom: 1px solid lightgray;
+                width: 80svw;
+                transform: translateX(-6%);
+            }
+
+            nav:has(input[id="hamburger"]:checked) menu[type="site"] li:last-of-type::after {
+                border-bottom: 0px;
+            }
+
+            nav:has(input[id="hamburger"]:checked) menu[type="site"] li {
+                display: grid;
+                align-items: center;
+                font-weight: bold;
+            }
+        }
