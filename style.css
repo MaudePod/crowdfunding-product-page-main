@@ -82,6 +82,12 @@
             cursor: pointer;
         }
 
+        menu[type="site"] li a,
+        menu[type="site"] li a:visited {
+            text-decoration: none;
+            color: white;
+        }
+
         section[class="bottom"] {
             display: grid;
             width: 100svw;
@@ -174,8 +180,7 @@
                 font-weight: 700;
             }
 
-            span[class="btn"] img {
-            }
+            span[class="btn"] img {}
         }
 
         span[class="btn"] {
@@ -265,7 +270,7 @@
             width: 95%;
             margin-top: 25px;
             border: 1px solid var(--dark-gray);
-            padding:5% 10% 5% 10%;
+            padding: 5% 10% 5% 10%;
             border-radius: 5px;
         }
 
